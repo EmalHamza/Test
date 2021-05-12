@@ -1,0 +1,19 @@
+<div class="row mt-30">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-header">
+                
+            </div>
+            <div class="card-body">
+                <form #f="ngForm" (ngSubmit)="onSubmitform(f)">
+                    <div class="form-group">
+                        <input type="file"  name="myFile" (change)="fileEvent($event)"/>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success">Upload Image</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

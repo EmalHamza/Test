@@ -1,0 +1,82 @@
+<div class="row">
+    <form [formGroup]='contactForm'>
+        <div class="col-md-12">
+        <div class="card mt-30">
+            <div class="card-header">
+                <h1 class="text-center">Relations</h1>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Relation</label>
+                            <table>
+                                <ng-container formArrayName='itemRows'>
+                                  <tr *ngFor="let itemRow of itemRows.controls; let i = index" [formGroupName]='i'>
+                                    <td>
+                                      <select id="province_id" class="form-control" formControlName="province_id"
+                                         (change)="onChangeProvince(i)">
+                                        <option  value=''>Select Province</option>
+                                        <option *ngFor="let province of provinces" 
+                                            [value]="province.id">{{province.province_name}}</option>
+                                     </select>
+                                    </td>
+                                    <td>
+                                        <select id="district_id" class="form-control" formControlName="district_id">
+                                            <option value=''>Select District</option>
+                                            <option *ngFor="let district of districts[i]" [value]="district.id">
+                                                 {{district.district_name}}</option>
+                                         </select>
+                                    </td>
+                                    <td>
+                                      <button class="btn btn-danger"  type="button"
+                                         (click)="deleteMyRelation(i)">Delete</button>
+                                      <button class="btn btn-primary" type="button"
+                                         (click)="addItem()">Add</button>
+                                    </td>
+                                  </tr>
+                                </ng-container>
+                              </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="form-group">
+                <button (click)="saveContact()" class="btn btn-primary float-right">Save</button>
+                <button class="btn btn-warning float-right">Cancel</button>
+            </div>
+        </div>
+        </div>
+    </form>
+</div>
+<!-- <div class="row">
+    <div class="col-md-6">
+         <div formArrayName="lessons">
+             <div *ngFor="let lessonForm of lessons.controls; let i = index">
+                 <div class="lesson-form-row" [formGroup]="contactForm">
+                     <div appearance="fill">
+                         <input matInput
+                             formControlName="title"
+                             placeholder="Lesson title">
+                     </div>
+                     <div appearance="fill">
+                         <select formControlName="level"
+                                 placeholder="Lesson level">
+                             <option value="beginner">Beginner</option>
+                             <option value="intermediate">Intermediate</option>
+                             <option value="advanced">Advanced</option>
+                     </select>
+                 </div>
+                     <button class="btn btn-danger" (click)="deleteLesson(i)">
+                         delete</button>
+                 </div>
+             </div>
+         </div>
+     
+         <button class="btn btn-primary" (click)="addLesson()">
+             add
+         </button>
+    </div>
+</div> -->

@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-lg-10 offset-1">
+        <div class="card mt-30">
+            <div class="card-header">
+                <h1 class="text-center">Contact List</h1>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Father Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let data of contacts">
+                        <td>{{data.id}}</td>
+                        <td>{{data.name}}</td>
+                        <td>{{data.fName}}</td>
+                        <td>{{data.email}}</td>
+                        <td>{{data.mobile}}</td>
+                        <td><img [src]="data.image ? imagePath+data.image : 'assets/no-image.jpg'" height="120px" width="100px"></td>
+                        <!-- <td>{{data.department_id}}</td> -->
+                        <td>
+                            <a href="#" [routerLink]="['/edit/', data.id]" class="btn btn-warning">Edit</a>
+                            <button type="button" (click)="deleteContact(data.id)" class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+        
+            </div>
+        </div>
+    </div>
+</div>

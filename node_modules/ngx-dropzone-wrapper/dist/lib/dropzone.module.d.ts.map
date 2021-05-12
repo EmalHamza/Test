@@ -1,0 +1,1 @@
+{"version":3,"file":"dropzone.module.d.ts","sources":["dropzone.module.d.ts"],"names":[],"mappings":";;;;AAAA;;;;AACA","sourcesContent":["export declare class DropzoneModule {\n}\n"]}
